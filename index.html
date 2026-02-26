@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+    <section class="relative bg-black text-white scroll-smooth">
+
+        <!-- ================= NAVBAR ================= -->
+        <nav
+            class="fixed w-full z-50 bg-white/10 backdrop-blur-md border-b border-white/20 px-6 md:px-10 py-4 flex items-center justify-around">
+
+            <!-- Logo -->
+            <h1 class="text-3xl font-extrabold tracking-widest 
+               bg-gradient-to-r from-cyan-400 to-purple-500 
+               bg-clip-text text-transparent">
+                VanRental
+            </h1>
+
+            <!-- Hamburger Button (Mobile) -->
+            <div class="md:hidden">
+                <button id="menu-btn" class="focus:outline-none">
+                    <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" stroke-width="2"
+                        viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Nav Links -->
+            <div id="menu" class="hidden md:flex gap-10 font-semibold text-white">
+                <a href="#home" class="hover:text-cyan-400 transition">Home</a>
+                <a href="#about" class="hover:text-cyan-400 transition">About</a>
+                <a href="#contact" class="hover:text-cyan-400 transition">Contact</a>
+            </div>
+        </nav>
+
+        <!-- Mobile Menu Overlay -->
+        <div id="mobile-menu"
+            class="fixed top-0 left-0 w-full h-full bg-black/80 backdrop-blur-md flex flex-col items-center justify-center gap-10 text-2xl font-semibold text-white transform -translate-y-full z-100 transition-transform duration-300 md:hidden">
+            <a href="#home" class="hover:text-cyan-400" onclick="toggleMenu()">Home</a>
+            <a href="#about" class="hover:text-cyan-400" onclick="toggleMenu()">About</a>
+            <a href="#contact" class="hover:text-cyan-400" onclick="toggleMenu()">Contact</a>
+        </div>
+
+        <!-- ================= HERO ================= -->
+        <section id="home" class="relative min-h-screen flex items-center justify-center text-center overflow-hidden">
+
+            <!-- Animated Background Image -->
+            <img src="https://images.unsplash.com/photo-1581862142388-23e1c52ca091?q=80&w=1170&auto=format&fit=crop"
+                alt="Van Rental Hero" class="absolute inset-0 w-full h-full object-cover object-center
+               brightness-65 contrast-125 saturate-125
+               animate-heroZoom">
+
+            <!-- Animated Gradient Overlay -->
+            <div class="absolute inset-0 bg-gradient-to-br 
+                from-black/70 via-black/40 to-purple-900/40
+                animate-gradientMove">
+            </div>
+
+            <!-- Content -->
+            <div class="relative z-40 px-6 max-w-4xl animate-fadeInUp">
+                <h1 class="text-4xl sm:text-5xl md:text-7xl font-extrabold 
+                   text-white/90 drop-shadow-2xl mt-10">
+                    Mhike Seloberes
+                </h1>
+
+                <p class="mt-6 text-lg sm:text-xl md:text-2xl 
+                  text-white/90 font-semibold tracking-wide">
+                    Premium Futuristic Van Rental Experience
+                </p>
+
+                <button class="mt-10 px-8 sm:px-10 py-3 sm:py-4 text-lg font-bold 
+                       bg-gradient-to-r from-cyan-500 to-purple-600
+                       rounded-full text-white shadow-lg
+                       hover:scale-110 hover:shadow-cyan-500/50
+                       transition duration-300 cursor-pointer
+                       animate-glowPulse">
+                    <a href="#contact">Book Now</a>
+                </button>
+            </div>
+
+        </section>
+
+
+        <!-- ================= ABOUT ================= -->
+        <section id="about" class="pt-20 px-8 bg-gradient-to-b from-black to-gray-900">
+
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold bg-gradient-to-r from-cyan-400 to-purple-500 
+                       bg-clip-text text-transparent">
+                    About My Service
+                </h2>
+                <p class="mt-4 text-gray-400 max-w-2xl mx-auto">
+                    I provide premium, comfortable, and reliable van rental services
+                    for travel, business, and special occasions.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-10 max-w-6xl mx-auto">
+
+                <!-- Card 1 -->
+                <div class="p-8 bg-white/10 backdrop-blur-md rounded-xl 
+                        border border-white/20 hover:scale-105 transition">
+                    <h3 class="text-xl font-bold text-cyan-400">Luxury Interior</h3>
+                    <p class="mt-4 text-gray-300">
+                        Spacious seating, air conditioning, and premium comfort.
+                    </p>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="p-8 bg-white/10 backdrop-blur-md rounded-xl 
+                        border border-white/20 hover:scale-105 transition">
+                    <h3 class="text-xl font-bold text-purple-400">Professional Driver</h3>
+                    <p class="mt-4 text-gray-300">
+                        Experienced and licensed driver for safe journeys.
+                    </p>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="p-8 bg-white/10 backdrop-blur-md rounded-xl 
+                        border border-white/20 hover:scale-105 transition">
+                    <h3 class="text-xl font-bold text-pink-400">24/7 Availability</h3>
+                    <p class="mt-4 text-gray-300">
+                        Anytime booking for trips, tours, and airport transfers.
+                    </p>
+                </div>
+
+            </div>
+        </section>
+        <!-- ================= FEATURED PHOTOS ================= -->
+        <section id="featured" class="py-20 px-6 bg-gradient-to-b from-gray-900 to-black">
+            <section id="featured" class="py-20 px-6 bg-black rounded-t-xl">
+
+                <div class="max-w-6xl mx-auto flex flex-col-reverse lg:flex-row items-center gap-10 lg:gap-16">
+
+                    <!-- Text Content -->
+                    <div class="text-center lg:text-left flex-1">
+                        <h2 class="text-4xl md:text-5xl font-extrabold 
+                       bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-500
+                       bg-clip-text text-transparent drop-shadow-lg">
+                            Featured Photos
+                        </h2>
+                        <p class="mt-4 text-gray-400 text-lg md:text-xl max-w-md mx-auto lg:mx-0">
+                            Explore my premium fleet ready for your next journey.
+                        </p>
+                    </div>
+
+                    <!-- Image -->
+                    <div class="flex-1 flex justify-center lg:justify-end">
+                        <img src="1.jpeg" alt="Featured Van" class="w-full max-w-sm h-auto rounded-2xl object-cover 
+                        brightness-95 contrast-125 saturate-125
+                        transform hover:scale-110 hover:shadow-lg hover:shadow-cyan-500/50 
+                        transition duration-700 ease-in-out">
+                    </div>
+
+                </div>
+
+            </section>
+            <!-- Grid -->
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+
+                <!-- CARD TEMPLATE -->
+                <!-- Photo 1 -->
+                <div class="group relative overflow-hidden rounded-2xl border border-white/20">
+
+                    <img src="pic1.jpeg" class="w-full h-80 object-cover
+                        brightness-95 contrast-125 saturate-125
+                        transform group-hover:scale-110
+                        transition duration-700 ease-in-out">
+
+                    <div class="absolute inset-0 bg-gradient-to-t 
+                        from-black/80 via-black/30 to-transparent
+                        opacity-0 group-hover:opacity-100
+                        transition duration-500 flex items-end p-6">
+
+                        <h3 class="text-xl font-bold text-cyan-400 translate-y-4 
+                           group-hover:translate-y-0 transition duration-500">
+                            Executive Van
+                        </h3>
+                    </div>
+                </div>
+
+                <!-- Photo 2 -->
+                <div class="group relative overflow-hidden rounded-2xl border border-white/20">
+                    <!-- <div class="bg-black/15 h-80 w-full z-5 absolute"></div> -->
+                    <img src="received_1989421472000515.jpeg" class="w-full h-80 object-cover
+                        brightness-95 contrast-125 saturate-125
+                        transform group-hover:scale-110
+                        transition duration-700 ease-in-out">
+
+                    <div class="absolute inset-0 bg-gradient-to-t 
+                        from-black/80 via-black/30 to-transparent
+                        opacity-0 group-hover:opacity-100
+                        transition duration-500 flex items-end p-6">
+
+                        <h3 class="text-xl font-bold text-purple-400 translate-y-4 
+                           group-hover:translate-y-0 transition duration-500">
+                            Luxury Travel Van
+                        </h3>
+                    </div>
+                </div>
+
+                <!-- Photo 3 -->
+                <div class="group relative overflow-hidden rounded-2xl border border-white/20">
+
+                    <img src="hero2.jpeg" class="w-full h-80 object-cover
+                        brightness-95 contrast-125 saturate-125
+                        transform group-hover:scale-110
+                        transition duration-700 ease-in-out">
+
+                    <div class="absolute inset-0 bg-gradient-to-t 
+                        from-black/80 via-black/30 to-transparent
+                        opacity-0 group-hover:opacity-100
+                        transition duration-500 flex items-end p-6">
+
+                        <h3 class="text-xl font-bold text-pink-400 translate-y-4 
+                           group-hover:translate-y-0 transition duration-500">
+                            Family Comfort Van
+                        </h3>
+                    </div>
+                </div>
+        </section>
+        <!-- ================= CONTACT ================= -->
+        <section id="contact" class="py-10 px-6 bg-black text-white">
+
+            <!-- Heading -->
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-extrabold 
+                   bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-500
+                   bg-clip-text text-transparent">
+                    Contact Me
+                </h2>
+                <p class="mt-4 text-gray-400 max-w-2xl mx-auto">
+                    Ready to book your ride? Send me a message or call me.
+                </p>
+            </div>
+
+            <!-- Contact Info Cards -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+
+                <!-- Call Us -->
+                <div class="p-6 rounded-2xl border border-white/20 bg-white/5 backdrop-blur-md 
+                    shadow-lg hover:scale-105 hover:shadow-cyan-500/50 transition transform">
+                    <div class="text-cyan-400 mb-4 text-3xl">
+                        <i class="fas fa-phone"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2 text-white">Call/Text Me</h3>
+                    <p class="text-gray-300">Mobile: +63 9384066085 ( TNT )</p>
+                </div>
+
+                <!-- Email Us -->
+                <div class="p-6 rounded-2xl border border-white/20 bg-white/5 backdrop-blur-md 
+                    shadow-lg hover:scale-105 hover:shadow-purple-500/50 transition transform">
+                    <div class="text-purple-400 mb-4 text-3xl">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2 text-white">Message Me</h3>
+                    <p class="text-gray-300">Facebook: Mhike Seloberes</p>
+                </div>
+
+                <!-- Visit Us -->
+                <div class="p-6 rounded-2xl border border-white/20 bg-white/5 backdrop-blur-md 
+                    shadow-lg hover:scale-105 hover:shadow-pink-500/50 transition transform">
+                    <div class="text-pink-400 mb-4 text-3xl">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2 text-white">Located</h3>
+                    <p class="text-gray-300">Tagum City, Davao Del Norte</p>
+                </div>
+
+            </div>
+
+        </section>
+        <!-- ================= FOOTER ================= -->
+        <footer class="bg-black/90 text-gray-300 py-12">
+            <div class="flex justify-center ml-30   ">
+                <div class="max-w-6xl mx-auto grid sm:grid-cols-2 md:grid-cols-4 gap-8">
+
+                    <!-- Logo + About -->
+                    <div>
+                        <h1 class="text-2xl font-extrabold 
+                       bg-gradient-to-r from-cyan-400 to-purple-500 
+                       bg-clip-text text-transparent mb-4">
+                            VanRental
+                        </h1>
+                        <p class="text-gray-400">
+                            Premium van rental service providing luxury, comfort, and reliability for every journey.
+                        </p>
+                    </div>
+
+                    <!-- Quick Links -->
+                    <div>
+                        <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
+                        <ul class="space-y-2">
+                            <li><a href="#home" class="hover:text-cyan-400 transition">Home</a></li>
+                            <li><a href="#about" class="hover:text-cyan-400 transition">About</a></li>
+                            <li><a href="#featured" class="hover:text-cyan-400 transition">Fleet</a></li>
+                            <li><a href="#contact" class="hover:text-cyan-400 transition">Contact</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Services -->
+                    <div>
+                        <h3 class="text-lg font-semibold mb-4">Services</h3>
+                        <ul class="space-y-2">
+                            <li>Luxury Vans</li>
+                            <li>Airport Transfers</li>
+                            <li>Business Travel</li>
+                            <li>Event Shuttle</li>
+                        </ul>
+                    </div>
+
+                    <!-- Social Media -->
+                    <div>
+                        <h3 class="text-lg font-semibold mb-4">Follow Us</h3>
+                        <div class="flex gap-4 text-xl">
+                            <a class="hover:text-cyan-400 transition"><i class="fab fa-facebook-f"></i></a>
+                            <a class="hover:text-purple-400 transition"><i class="fab fa-twitter"></i></a>
+                            <a class="hover:text-pink-400 transition"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="mt-12 text-center text-gray-500 text-sm">
+                &copy; 2026 Mhike Seloberes. All rights reserved.
+            </div>
+        </footer>
+
+    </section>
+    <!-- JS for Toggle -->
+    <script>
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        function toggleMenu() {
+            mobileMenu.classList.toggle('-translate-y-full');
+        }
+
+        menuBtn.addEventListener('click', toggleMenu);
+    </script>
+    <style>
+        /* Slow Cinematic Zoom */
+        @keyframes heroZoom {
+            0% {
+                transform: scale(1);
+            }
+
+            100% {
+                transform: scale(1.15);
+            }
+        }
+
+        .animate-heroZoom {
+            animation: heroZoom 20s ease-in-out infinite alternate;
+        }
+
+        /* Gradient movement */
+        @keyframes gradientMove {
+            0% {
+                opacity: 0.8;
+            }
+
+            50% {
+                opacity: 0.6;
+            }
+
+            100% {
+                opacity: 0.8;
+            }
+        }
+
+        .animate-gradientMove {
+            animation: gradientMove 6s ease-in-out infinite;
+        }
+
+        /* Fade In Up Content */
+        @keyframes fadeInUp {
+            0% {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-fadeInUp {
+            animation: fadeInUp 1.5s ease-out;
+        }
+
+        /* Button Glow Pulse */
+        @keyframes glowPulse {
+
+            0%,
+            100% {
+                box-shadow: 0 0 15px rgba(0, 255, 255, 0.3);
+            }
+
+            50% {
+                box-shadow: 0 0 25px rgba(0, 255, 255, 0.7);
+            }
+        }
+
+        .animate-glowPulse {
+            animation: glowPulse 3s infinite;
+        }
+    </style>
+
+</html>
